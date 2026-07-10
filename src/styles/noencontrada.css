@@ -1,0 +1,138 @@
+.notfound {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  padding: var(--space-16) var(--space-6);
+}
+
+.notfound__content {
+  max-width: 560px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfound__icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--color-primary-50);
+  color: var(--color-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-8);
+  animation: notfound-float 3.5s ease-in-out infinite;
+}
+
+.notfound__icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes notfound-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.notfound__eyebrow {
+  font-family: var(--font-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  font-size: var(--fs-xs);
+  color: var(--color-accent-hover);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-4);
+}
+
+.notfound__title {
+  font-family: var(--font-headline);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-brand);
+  line-height: 1.25;
+  margin: 0 0 var(--space-6);
+}
+
+.notfound__text {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-8);
+}
+
+.notfound__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.notfound__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-base), transform var(--transition-fast),
+    color var(--transition-base), border-color var(--transition-base);
+}
+
+.notfound__btn--solid {
+  background: var(--color-brand);
+  color: var(--color-text-on-brand);
+}
+
+.notfound__btn--solid:hover {
+  background: var(--color-brand-hover);
+  transform: translateY(-2px);
+}
+
+.notfound__btn--outline {
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.notfound__btn--outline:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notfound__icon {
+    animation: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .notfound__title {
+    font-size: var(--fs-xl);
+  }
+
+  .notfound__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .notfound__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
