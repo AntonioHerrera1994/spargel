@@ -1,0 +1,51 @@
+---
+// FaqSection.astro
+import "../styles/faqs.css";
+
+const faqs = [
+  {
+    question: "¿Qué hace que los espárragos de Los Planes sean únicos?",
+    answer:
+      "Nuestro microclima único, donde el desierto se encuentra con el océano, junto con suelos arenosos ricos en minerales, produce un espárrago de sabor excepcionalmente dulce y textura tierna.",
+  },
+  {
+    question: "¿Cómo garantizan la sustentabilidad de sus cultivos?",
+    answer:
+      "Utilizamos sistemas de riego por goteo de alta precisión alimentados íntegramente por energía solar, minimizando nuestra huella hídrica y de carbono en cada cosecha.",
+  },
+  {
+    question: "¿Realizan envíos internacionales?",
+    answer:
+      "Sí, operamos bajo los más estrictos estándares de calidad de exportación, lo que nos permite llevar la frescura de Baja California Sur a mercados internacionales de primer nivel.",
+  },
+  {
+    question: "¿Cómo puedo realizar un pedido de mayoreo?",
+    answer:
+      "Puede completar el formulario de contacto que se encuentra a continuación o llamarnos directamente. Nuestro equipo de ventas le proporcionará una cotización personalizada según sus necesidades.",
+  },
+];
+---
+
+<section class="faq">
+  <div class="faq__header">
+    <div class="faq__eyebrow">
+      <span class="faq__eyebrow-line"></span>
+      PREGUNTAS FRECUENTES
+      <span class="faq__eyebrow-line"></span>
+    </div>
+    <h2 class="faq__title">Resolviendo sus Dudas</h2>
+  </div>
+
+  <div class="faq__grid">
+    {
+      faqs.map((item) => (
+        <div class="faq-card">
+          <h3 class="faq-card__question">{item.question}</h3>
+          <p class="faq-card__answer">{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script src="../scripts/faqs.js"></script>

@@ -1,0 +1,235 @@
+.about {
+  background: var(--color-bg);
+  padding: var(--space-16) var(--space-6);
+}
+
+.about__grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr) minmax(320px, 1.35fr);
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+/* ---------- Imagen ---------- */
+
+.about__image {
+  margin: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-tertiary-300);
+  min-height: 320px;
+}
+
+.about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Tarjetas ---------- */
+
+.about__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.feature-card {
+  background: var(--color-primary-50);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  flex: 1;
+  cursor: default; /* no son botones, solo tienen efecto hover */
+  transition: background var(--transition-base);
+}
+
+.feature-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand);
+  margin-bottom: var(--space-6);
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.feature-card__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.feature-card__title {
+  font-family: var(--font-headline);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--color-brand);
+  margin: 0 0 var(--space-2);
+  transition: color var(--transition-base);
+}
+
+.feature-card__text {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+  transition: color var(--transition-base);
+}
+
+/* Efecto hover: la tarjeta se vuelve del verde de marca, sin ser un botón */
+.feature-card:hover {
+  background: var(--color-brand);
+}
+
+.feature-card:hover .feature-card__icon {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--color-text-on-brand);
+}
+
+.feature-card:hover .feature-card__title {
+  color: var(--color-text-on-brand);
+}
+
+.feature-card:hover .feature-card__text {
+  color: var(--color-primary-100);
+}
+
+/* ---------- Copy ---------- */
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-brand);
+  font-family: var(--font-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  margin-bottom: var(--space-6);
+}
+
+.about__eyebrow-line {
+  width: 32px;
+  height: 2px;
+  background: var(--color-brand);
+}
+
+.about__title {
+  font-family: var(--font-headline);
+  font-size: var(--fs-2xl);
+  line-height: 1.2;
+  font-weight: var(--fw-bold);
+  color: var(--color-brand);
+  margin: 0 0 var(--space-6);
+  max-width: 20ch;
+}
+
+.about__text {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: 46ch;
+  margin: 0 0 var(--space-8);
+}
+
+.about__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand);
+  color: var(--color-text-on-brand);
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  text-decoration: none;
+  transition: background var(--transition-base), transform var(--transition-fast);
+}
+
+.about__cta:hover {
+  background: var(--color-brand-hover);
+  transform: translateY(-2px);
+}
+
+/* ---------- Animación de entrada (opcional, respeta reduced-motion) ---------- */
+
+.about__image,
+.feature-card,
+.about__content {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about__image.is-visible,
+.feature-card.is-visible,
+.about__content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__image,
+  .feature-card,
+  .about__content {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1100px) {
+  .about__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about__content {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .about {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__image {
+    min-height: 260px;
+  }
+
+  .about__title {
+    max-width: none;
+    font-size: var(--fs-xl);
+  }
+
+  .about__text {
+    max-width: none;
+  }
+
+  .about__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

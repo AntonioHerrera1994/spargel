@@ -1,0 +1,203 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base);
+  font-family: var(--font-body);
+}
+
+/* Sombra más pronunciada al hacer scroll (se activa con JS) */
+.navbar.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* ===== LOGO ===== */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--color-brand);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-md);
+}
+
+.logo-icon {
+  font-size: 2rem;
+}
+
+.logo-text {
+  font-family: var(--font-headline);
+  letter-spacing: -0.5px;
+}
+
+/* ===== MENÚ ===== */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-base);
+  padding: var(--space-2) 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-base), border-color var(--transition-base);
+}
+
+.navbar-menu li a:hover {
+  color: var(--color-brand);
+  border-bottom-color: var(--color-brand);
+}
+
+/* CTA — usa el acento dorado de la paleta para destacar sobre el navbar blanco */
+.navbar-menu li a.btn-pedir {
+  background-color: var(--color-accent);
+  color: var(--color-primary-800);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  border-bottom: none;
+  font-weight: var(--fw-semibold);
+  transition: background-color var(--transition-base), transform var(--transition-fast);
+}
+
+.navbar-menu li a.btn-pedir:hover {
+  background-color: var(--color-accent-hover);
+  color: var(--color-text-on-brand);
+  transform: scale(1.02);
+  border-bottom-color: transparent;
+}
+
+/* ===== REDES SOCIALES (junto al botón verde) ===== */
+.navbar-menu li.navbar-socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: calc(var(--space-2) * -1);
+}
+
+.navbar-menu li.navbar-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  color: var(--color-brand);
+  border-bottom: none;
+  transition: background-color var(--transition-base), color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.navbar-menu li.navbar-socials a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.navbar-menu li.navbar-socials a:hover {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+  color: var(--color-text-on-brand);
+}
+
+/* ===== TOGGLE (hamburguesa) ===== */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 26px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-brand);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+/* Animación cuando el menú está abierto (se añade clase 'open' desde JS) */
+.navbar-toggle.open .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar-toggle.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggle.open .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--color-surface);
+    padding: var(--space-6) var(--space-8);
+    gap: var(--space-4);
+    box-shadow: var(--shadow-md);
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--transition-base), opacity var(--transition-base),
+      visibility var(--transition-base);
+  }
+
+  .navbar-menu.open {
+    transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-menu li a {
+    font-size: var(--fs-md);
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-menu li a.btn-pedir {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-menu li.navbar-socials {
+    margin-left: 0;
+    justify-content: center;
+    padding-top: var(--space-2);
+  }
+}

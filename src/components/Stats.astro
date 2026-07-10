@@ -1,0 +1,28 @@
+---
+
+import "../styles/stats.css";
+
+const stats = [
+  { value: 15, suffix: "+", label: "Hectáreas", sublabel: "Cultivo Protegido" },
+  { value: 100, suffix: "%", label: "Sustentable", sublabel: "Energía Solar" },
+  { value: 10, suffix: "+", label: "Años", sublabel: "En el Mercado" },
+];
+---
+
+<section class="stats">
+  <div class="stats__card">
+    {
+      stats.map((stat, index) => (
+        <div class="stats__item">
+          <p class="stats__value">
+            <span class="stats__number" data-target={stat.value}>0</span>{stat.suffix}
+            {" "}{stat.label}
+          </p>
+          <p class="stats__sublabel">{stat.sublabel}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script src="../scripts/stats.js"></script>

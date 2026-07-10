@@ -1,0 +1,90 @@
+
+---
+
+const slides = [
+  { src: "../src/assets/esp1.webp", alt: "Producto de cerca" },
+  { src: "../src/assets/esp2.webp", alt: "Empaque premium" },
+  
+  { src: "../src/assets/esp3.webp", alt: "Corte fresco" },
+  { src: "../src/assets/esp4.webp", alt: "Cosecha en el valle" },
+];
+---
+
+<section class="hero">
+  <div class="hero__grid">
+    <!-- Columna izquierda: tarjeta verde con el copy -->
+    <div class="hero__card">
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-line"></span>
+        FRESCURA SUSTENTABLE 100%
+      </div>
+
+      <h1 class="hero__title">
+        Frescura Sustentable desde el Corazón de Baja California Sur
+      </h1>
+
+      <p class="hero__desc">
+        Espárragos premium cultivados con conciencia ambiental en el Valle de
+        Los Planes. Una joya de exportación directamente del campo a su mesa.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#cotizar" class="btn btn--solid">
+          Cotizar Mayoreo <span class="icon" aria-hidden="true">↗</span>
+        </a>
+        <a href="#origen" class="btn btn--outline">
+          Conoce Nuestro Origen <span class="icon" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Columna derecha: imagen de fondo + slider flotante -->
+    <div class="hero__visual">
+      <figure class="hero__bg">
+        <img
+          src="/src/assets/esparrago.webp"
+          alt="Asparagus Farm"
+          loading="lazy"
+        />
+        <figcaption>Asparagus Farm</figcaption>
+      </figure>
+
+      <div class="hero__slider" id="hero-slider">
+        <div class="hero__slider-track" id="slider-track">
+          {
+            slides.map((slide) => (
+              <div class="hero__slide">
+                <img src={slide.src} alt={slide.alt} loading="lazy" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="hero__nav">
+        <button
+          type="button"
+          class="nav-btn nav-btn--prev"
+          id="prev-btn"
+          aria-label="Imagen anterior"
+        >
+          ‹
+        </button>
+        <button
+          type="button"
+          class="nav-btn nav-btn--next is-active"
+          id="next-btn"
+          aria-label="Siguiente imagen"
+        >
+          ›
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Enlazar CSS y JS -->
+<link rel="stylesheet" href="/src/styles/hero.css" />
+<script src="/src/scripts/heri.js" defer></script>

@@ -1,0 +1,62 @@
+---
+import "../styles/recetas.css";
+
+const recipes = [
+  {
+    title: "Espárragos Asados",
+    text: "Con sal de mar y aceite de oliva virgen para resaltar su dulzor natural.",
+    image: "../src/assets/plato1.webp",
+    alt: "Grilled Asparagus",
+    href: "/recetas/esparragos-asados",
+  },
+  {
+    title: "Crema Gourmet",
+    text: "Textura aterciopelada infusionada con puerros y brotes frescos.",
+    image: "../src/assets/plato2.webp",
+    alt: "Crema Gourmet",
+    href: "/recetas/crema-gourmet",
+  },
+  {
+    title: "Risotto con Brotes",
+    text: "Un clásico de la cocina mediterránea con el toque de Baja California Sur.",
+    image: "../src/assets/plato3.webp",
+    alt: "Risotto con Brotes",
+    href: "/recetas/risotto-con-brotes",
+  },
+];
+---
+
+<section class="recipes">
+  <div class="recipes__header">
+    <div class="recipes__eyebrow">
+      <span class="recipes__eyebrow-line"></span>
+      GASTRONOMÍA
+      <span class="recipes__eyebrow-line"></span>
+    </div>
+    <h2 class="recipes__title">Del Campo a tu Mesa</h2>
+    <p class="recipes__subtitle">
+      Inspírate con el sabor único de nuestros espárragos en preparaciones gourmet.
+    </p>
+  </div>
+
+  <div class="recipes__grid">
+    {
+      recipes.map((recipe) => (
+        <a href={recipe.href} class="recipe-card">
+          <div class="recipe-card__image">
+            <img src={recipe.image} alt={recipe.alt} loading="lazy" />
+          </div>
+          <div class="recipe-card__body">
+            <h3 class="recipe-card__title">{recipe.title}</h3>
+            <p class="recipe-card__text">{recipe.text}</p>
+            <span class="recipe-card__link">
+              Ver Receta <span class="recipe-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<script src="../scripts/recetas.js"></script>

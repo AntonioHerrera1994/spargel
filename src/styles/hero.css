@@ -1,0 +1,267 @@
+
+
+.hero {
+  background: var(--color-bg);
+  padding: var(--space-16) var(--space-6);
+  font-family: var(--font-body);
+}
+
+.hero__grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(320px, 620px) 1fr;
+  gap: var(--space-12);
+  align-items: stretch;
+}
+
+/* ---------- Tarjeta verde (izquierda) ---------- */
+
+.hero__card {
+  background: var(--color-brand);
+  border-radius: var(--radius-xl);
+  padding: var(--space-16) var(--space-12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-text-on-brand);
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-accent);
+  font-family: var(--font-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  margin-bottom: var(--space-6);
+}
+
+.hero__eyebrow-line {
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.hero__title {
+  font-family: var(--font-headline);
+  font-size: var(--fs-3xl);
+  line-height: 1.15;
+  font-weight: var(--fw-bold);
+  margin: 0 0 var(--space-6);
+  color: var(--color-text-on-brand);
+}
+
+.hero__desc {
+  font-family: var(--font-body);
+  color: var(--color-primary-100);
+  font-size: var(--fs-md);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 0 var(--space-8);
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+/* Botones — prefijados con .hero para no chocar con .btn de global.css */
+
+.hero .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  text-decoration: none;
+  transition: transform var(--transition-fast), background var(--transition-base),
+    opacity var(--transition-base);
+}
+
+.hero .btn .icon {
+  font-size: 0.9em;
+}
+
+.hero .btn--solid {
+  background: var(--color-surface);
+  color: var(--color-brand);
+}
+
+.hero .btn--solid:hover {
+  transform: translateY(-2px);
+}
+
+.hero .btn--outline {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  color: var(--color-text-on-brand);
+}
+
+.hero .btn--outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Visual (derecha) ---------- */
+
+.hero__visual {
+  position: relative;
+  min-height: 560px;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero__bg figcaption {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-brand);
+  font-family: var(--font-label);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+}
+
+/* Tarjeta flotante tipo "teléfono" con el slider */
+
+.hero__slider {
+  position: absolute;
+  right: var(--space-6);
+  bottom: 104px;
+  width: 220px;
+  height: 320px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 6px solid var(--color-surface);
+  box-shadow: var(--shadow-lg);
+  background: var(--color-tertiary-300);
+}
+
+.hero__slider-track {
+  display: flex;
+  height: 100%;
+  transition: transform var(--transition-slow);
+}
+
+.hero__slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.hero__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Flechas de navegación, debajo del slider */
+
+.hero__nav {
+  position: absolute;
+  right: 88px;
+  bottom: var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  background: var(--color-surface);
+  color: var(--color-brand);
+  box-shadow: var(--shadow-md);
+  transition: background var(--transition-base), color var(--transition-base),
+    transform var(--transition-fast);
+}
+
+.nav-btn:hover {
+  transform: translateY(-1px);
+}
+
+.nav-btn.is-active {
+  background: var(--color-brand);
+  color: var(--color-text-on-brand);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 960px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__card {
+    padding: var(--space-12) var(--space-8);
+  }
+
+  .hero__visual {
+    min-height: 420px;
+  }
+
+  .hero__slider {
+    width: 180px;
+    height: 260px;
+    bottom: 88px;
+  }
+
+  .hero__nav {
+    right: 70px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero__card {
+    border-radius: var(--radius-md);
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .hero__actions {
+    width: 100%;
+  }
+
+  .hero .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .hero__slider-track {
+    transition: none;
+  }
+}

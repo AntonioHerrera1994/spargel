@@ -1,0 +1,74 @@
+---
+import "../styles/process.css";
+
+const steps = [
+  {
+    label: "Step 01",
+    title: "Empaque Sustentable",
+    text: "Uso de materiales biodegradables y reducción total de plásticos de un solo uso en nuestra cadena.",
+    image: "../src/assets/step1.webp",
+    alt: "Empaque Sustentable",
+  },
+  {
+    label: "Step 02",
+    title: "Cuidado y Soporte Continuo",
+    text: "Monitoreo constante de cada brote mediante sistemas de precisión y riego por goteo solar.",
+    image: "../src/assets/setp2.webp",
+    alt: "Cuidado y Soporte Continuo",
+  },
+  {
+    label: "Step 03",
+    title: "Cosecha y Selección Expert",
+    text: "Recolección manual selectiva para asegurar que solo los mejores brotes de calidad exportación lleguen a usted.",
+    image: "../src/assets/setp3.webp",
+    alt: "Harvesting",
+  },
+];
+---
+
+<section class="process">
+  <div class="process__header">
+    <div class="process__eyebrow">
+      <span class="process__eyebrow-line"></span>
+      NUESTRO PROCESO
+      <span class="process__eyebrow-line"></span>
+    </div>
+    <h2 class="process__title">Paso a Paso hacia la Excelencia</h2>
+  </div>
+
+  <div class="process__grid">
+    <!-- Timeline -->
+    <div class="process__steps" id="process-steps">
+      {
+        steps.map((step, index) => (
+          <div class="process-step" data-index={index}>
+            <div class="process-step__marker">
+              <span class="process-step__badge">{step.label}</span>
+            </div>
+            <div class="process-step__content">
+              <h3 class="process-step__title">{step.title}</h3>
+              <p class="process-step__text">{step.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Imagen que acompaña al paso activo -->
+    <div class="process__visual" id="process-visual">
+      {
+        steps.map((step, index) => (
+          <img
+            src={step.image}
+            alt={step.alt}
+            class="process__image"
+            data-index={index}
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script src="../scripts/process.js"></script>
