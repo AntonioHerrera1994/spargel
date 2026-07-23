@@ -1,0 +1,64 @@
+---
+// src/pages/recetas/index.astro
+// Ajusta la ruta del Layout según la estructura de tu proyecto.
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import "./recetas-index.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+const allRecipes = await getCollection("recetas", ({ data }) => !data.draft);
+
+const recipes = allRecipes.sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+
+<Layout title="Recetas — Spargel de los Planes">
+  <Navbar />
+  <section class="recetas-index">
+    <div class="recetas-index__header">
+      <div class="recetas-index__eyebrow">
+        <span class="recetas-index__eyebrow-line"></span>
+        GASTRONOMÍA
+        <span class="recetas-index__eyebrow-line"></span>
+      </div>
+      <h1 class="recetas-index__title">Nuestras Recetas</h1>
+      <p class="recetas-index__subtitle">
+        Ideas gourmet para sacarle el máximo sabor a nuestros espárragos, del
+        campo directo a tu mesa.
+      </p>
+    </div>
+
+    <div class="recetas-index__grid">
+      {
+        recipes.map((recipe) => (
+          <a href={`/recetas/${recipe.id}`} class="recipe-tile">
+            <div class="recipe-tile__image">
+              <img src={recipe.data.image} alt={recipe.data.title} loading="lazy" />
+              <span class="recipe-tile__category">{recipe.data.category}</span>
+            </div>
+            <div class="recipe-tile__body">
+              <h2 class="recipe-tile__title">{recipe.data.title}</h2>
+              <p class="recipe-tile__text">{recipe.data.description}</p>
+              <div class="recipe-tile__meta">
+                <span>⏱ {recipe.data.prepTime} + {recipe.data.cookTime}</span>
+                <span>· {recipe.data.difficulty}</span>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    {
+      recipes.length === 0 && (
+        <p class="recetas-index__empty">
+          Aún no hay recetas publicadas. ¡Vuelve pronto!
+        </p>
+      )
+    }
+  </section>
+  <Footer />
+</Layout>

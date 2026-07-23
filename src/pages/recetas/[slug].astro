@@ -1,0 +1,68 @@
+---
+// src/pages/recetas/[slug].astro
+// Ajusta la ruta del Layout según la estructura de tu proyecto.
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+import "./receta-detalle.css";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const recipes = await getCollection("recetas", ({ data }) => !data.draft);
+
+  return recipes.map((recipe) => ({
+    params: { slug: recipe.id },
+    props: { recipe },
+  }));
+}
+
+const { recipe } = Astro.props;
+const { data } = recipe;
+const { Content } = await render(recipe);
+---
+
+<Layout title={`${data.title} — Spargel de los Planes`}>
+    <Navbar/>
+  <article class="receta">
+    <div class="receta__header">
+      <a href="/recetas" class="receta__back">← Volver a Recetas</a>
+
+      <span class="receta__category">{data.category}</span>
+      <h1 class="receta__title">{data.title}</h1>
+      <p class="receta__description">{data.description}</p>
+
+      <div class="receta__meta">
+        <div class="receta__meta-item">
+          <span class="receta__meta-label">Preparación</span>
+          <span class="receta__meta-value">{data.prepTime}</span>
+        </div>
+        <div class="receta__meta-item">
+          <span class="receta__meta-label">Cocción</span>
+          <span class="receta__meta-value">{data.cookTime}</span>
+        </div>
+        <div class="receta__meta-item">
+          <span class="receta__meta-label">Porciones</span>
+          <span class="receta__meta-value">{data.servings}</span>
+        </div>
+        <div class="receta__meta-item">
+          <span class="receta__meta-label">Dificultad</span>
+          <span class="receta__meta-value">{data.difficulty}</span>
+        </div>
+      </div>
+    </div>
+
+    <figure class="receta__image">
+      <img src={data.image} alt={data.title} />
+    </figure>
+
+    <div class="receta__content">
+      <Content />
+    </div>
+
+    <div class="receta__cta">
+      <p>¿Quieres estos espárragos frescos para tu cocina o negocio?</p>
+      <a href="/#contacto" class="receta__cta-btn">Cotizar Mayoreo</a>
+    </div>
+  </article>
+  <Footer />
+</Layout>

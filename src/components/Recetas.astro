@@ -1,31 +1,17 @@
 ---
+// src/components/Recetas.astro
+// Ya no usa datos hardcodeados: lee las recetas reales de src/content/recetas
+// para que el href siempre apunte a una página que sí existe.
+import { getCollection } from "astro:content";
 import "../styles/recetas.css";
-
-const recipes = [
-  {
-    title: "Espárragos Asados",
-    text: "Con sal de mar y aceite de oliva virgen para resaltar su dulzor natural.",
-    image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/plato1.webp",
-    alt: "Grilled Asparagus",
-    href: "/recetas/esparragos-asados",
-  },
-  {
-    title: "Crema Gourmet",
-    text: "Textura aterciopelada infusionada con puerros y brotes frescos.",
-    image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/plato2.webp",
-    alt: "Crema Gourmet",
-    href: "/recetas/crema-gourmet",
-  },
-  {
-    title: "Risotto con Brotes",
-    text: "Un clásico de la cocina mediterránea con el toque de Baja California Sur.",
-    image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/plato3.webp",
-    alt: "Risotto con Brotes",
-    href: "/recetas/risotto-con-brotes",
-  },
-];
+ 
+const allRecipes = await getCollection("recetas", ({ data }) => !data.draft);
+ 
+const recipes = allRecipes
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3); // solo las 3 más recientes en el home
 ---
-
+ 
 <section class="recipes">
   <div class="recipes__header">
     <div class="recipes__eyebrow">
@@ -38,17 +24,17 @@ const recipes = [
       Inspírate con el sabor único de nuestros espárragos en preparaciones gourmet.
     </p>
   </div>
-
+ 
   <div class="recipes__grid">
     {
       recipes.map((recipe) => (
-        <a href={recipe.href} class="recipe-card">
+        <a href={`/recetas/${recipe.id}`} class="recipe-card">
           <div class="recipe-card__image">
-            <img src={recipe.image} alt={recipe.alt} loading="lazy" />
+            <img src={recipe.data.image} alt={recipe.data.title} loading="lazy" />
           </div>
           <div class="recipe-card__body">
-            <h3 class="recipe-card__title">{recipe.title}</h3>
-            <p class="recipe-card__text">{recipe.text}</p>
+            <h3 class="recipe-card__title">{recipe.data.title}</h3>
+            <p class="recipe-card__text">{recipe.data.description}</p>
             <span class="recipe-card__link">
               Ver Receta <span class="recipe-card__arrow" aria-hidden="true">→</span>
             </span>
@@ -57,6 +43,13 @@ const recipes = [
       ))
     }
   </div>
+ 
+
+  <div class="recipes__cta" style="margin-top: 50px;">
+    <a href="/recetas" class="recipes__cta-link" >Ver todas las recetas →</a>
+  </div>
+
+
 </section>
 
 <script src="../scripts/recetas.js"></script>
