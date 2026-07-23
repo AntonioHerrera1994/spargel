@@ -1,13 +1,16 @@
 ---
 import '../styles/navbar.css'
+import Logo from '../assets/spargel-logo.png'
 ---
 
 <nav class="navbar" id="navbar">
   <div class="navbar-container">
     <a href="/" class="navbar-logo">
       <!-- Puedes reemplazar el emoji por tu logo real -->
-      <span class="logo-icon">🌿</span>
-      <span class="logo-text">Spargel de los Planes</span>
+   <img 
+                src={Logo.src}
+        
+                alt="spargel-logo"/>
     </a>
  
     <button class="navbar-toggle" id="navbarToggle" aria-label="Menú">
@@ -21,7 +24,7 @@ import '../styles/navbar.css'
       <li><a href="/#proceso">Proceso</a></li>
       <li><a href="/recetas">Recetas</a></li>
       <li><a href="/#contacto">Contacto</a></li>
-      <li><a href="#pedir" class="btn-pedir">Pedir Ahora</a></li>
+      <li><a href="#pedir" class="btn-pedir">Cotizar Pedido</a></li>
       <li class="navbar-socials">
         <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

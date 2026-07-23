@@ -20,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 85px;
 }
 
 /* ===== LOGO ===== */
@@ -32,15 +32,12 @@
   color: var(--color-brand);
   font-weight: var(--fw-bold);
   font-size: var(--fs-md);
+  flex-shrink: 0;
 }
 
-.logo-icon {
-  font-size: 2rem;
-}
-
-.logo-text {
-  font-family: var(--font-headline);
-  letter-spacing: -0.5px;
+.navbar-logo img {
+  height: 80px;
+  width: auto;
 }
 
 /* ===== MENÚ ===== */
@@ -61,6 +58,7 @@
   font-size: var(--fs-base);
   padding: var(--space-2) 0;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
   transition: color var(--transition-base), border-color var(--transition-base);
 }
 
@@ -77,6 +75,8 @@
   border-radius: var(--radius-pill);
   border-bottom: none;
   font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: background-color var(--transition-base), transform var(--transition-fast);
 }
 
@@ -93,6 +93,7 @@
   align-items: center;
   gap: var(--space-2);
   margin-left: calc(var(--space-2) * -1);
+  flex-shrink: 0;
 }
 
 .navbar-menu li.navbar-socials a {
