@@ -14,17 +14,19 @@ const infoLinks = [
   { label: "Términos y Condiciones", href: "/terminos-y-condiciones" },
   { label: "Logística Global", href: "/logistica-global" },
 ];
+
+import FooterLogo from '../assets/footer-logo.png'
 ---
 
 <footer class="footer">
   <div class="footer__top">
     <div class="footer__brand">
       <div class="footer__logo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M11 20A7 7 0 0 1 4 13V7a1 1 0 0 1 1-1h6a7 7 0 0 1 7 7v0a7 7 0 0 1-7 7Z" />
-          <path d="M4 13c6 0 8-4 12-4" />
-        </svg>
-        <span class="footer__brand-name">Spargel de los Planes</span>
+      <img 
+      src={FooterLogo.src}
+      alt="spargel footer logo"
+      width="160px"
+      />
       </div>
       <p class="footer__desc">
         Líderes en el cultivo sustentable de espárragos en el noroeste de
