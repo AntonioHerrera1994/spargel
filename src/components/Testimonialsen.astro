@@ -1,0 +1,129 @@
+---
+import "../styles/testimonials.css";
+
+const testimonials = [
+  {
+    name: "Ricardo Méndez",
+    role: "Executive Chef, Resort Los Cabos",
+    avatar: "https://i.pravatar.cc/150?img=12",
+    rating: 4,
+    quote:
+      "The quality is unmatched. The color and texture of these asparagus are the gold standard in my kitchen.",
+    company: "Culinary Elite",
+    score: 99,
+  },
+  {
+    name: "Elena Portillo",
+    role: "Purchasing Director, Gourmet Delights",
+    avatar: "https://i.pravatar.cc/150?img=45",
+    rating: 5,
+    quote:
+      "True sustainability and on-time delivery. They're our most reliable strategic partners in the region.",
+    company: "BioDistribuidora",
+    score: 99,
+  },
+  {
+    name: "Marco Valenzuela",
+    role: "Founding Partner, Green Market",
+    avatar: "https://i.pravatar.cc/150?img=32",
+    rating: 4,
+    quote:
+      "We had never seen packaging so well designed and eco-friendly. Truly impressive.",
+    company: "EcoRetail",
+    score: 99,
+  },
+  {
+    name: "Sofía Ramírez",
+    role: "Purchasing Manager, Hotel Palmilla",
+    avatar: "https://i.pravatar.cc/150?img=8",
+    rating: 5,
+    quote:
+      "Flawless consistency in every delivery. Our guests notice the difference in every dish.",
+    company: "Palmilla Resorts",
+    score: 98,
+  },
+  {
+    name: "Daniel Torres",
+    role: "Head Chef, Flora Farms",
+    avatar: "https://i.pravatar.cc/150?img=60",
+    rating: 4,
+    quote:
+      "You can tell it goes from field to table in hours, not days. The freshness speaks for itself.",
+    company: "Flora Farms",
+    score: 97,
+  },
+];
+---
+
+<section class="testimonials">
+  <div class="testimonials__header">
+    <div class="testimonials__intro">
+      <div class="testimonials__eyebrow">
+        <span class="testimonials__eyebrow-line"></span>
+        TESTIMONIALS
+      </div>
+      <h2 class="testimonials__title">
+        Why Our Clients Choose Spargel
+      </h2>
+    </div>
+
+    <div class="testimonials__nav">
+      <button
+        type="button"
+        class="nav-btn nav-btn--prev"
+        id="t-prev"
+        aria-label="Previous testimonial"
+      >
+        ←
+      </button>
+      <button
+        type="button"
+        class="nav-btn nav-btn--next is-active"
+        id="t-next"
+        aria-label="Next testimonial"
+      >
+        →
+      </button>
+    </div>
+  </div>
+
+  <div class="testimonials__viewport">
+    <div class="testimonials__track" id="t-track">
+      {
+        testimonials.map((t, index) => (
+          <article class={`t-item t-item--${index % 2 === 0 ? "a" : "b"}`}>
+            <div class="t-item__person">
+              <img src={t.avatar} alt={t.name} class="t-item__avatar" loading="lazy" />
+              <div>
+                <p class="t-item__name">{t.name}</p>
+                <p class="t-item__role">{t.role}</p>
+              </div>
+            </div>
+
+            <div class="t-card">
+              <div class="t-card__stars" aria-label={`${t.rating} out of 5 stars`}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    viewBox="0 0 24 24"
+                    class={`t-star ${i < t.rating ? "is-filled" : ""}`}
+                  >
+                    <path d="M12 2.5l2.9 6.02 6.6.77-4.85 4.6 1.24 6.56L12 17.9l-5.89 2.55 1.24-6.56-4.85-4.6 6.6-.77z" />
+                  </svg>
+                ))}
+              </div>
+
+              <p class="t-card__quote">"{t.quote}"</p>
+
+              <div class="t-card__footer">
+                <span class="t-card__company">{t.company}</span>
+                <span class="t-card__score">{t.score}</span>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script src="../scripts/testimonials.js"></script>

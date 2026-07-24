@@ -1,0 +1,68 @@
+---
+// src/pages/en/recipes/[slug].astro
+// Adjust the Layout path to match your project structure.
+import LayoutEn from "../../layouts/LayoutIngles.astro";
+import { getCollection, render } from "astro:content";
+import "../recipes/recipes-details.css";
+import NavbarEn from "../../components/Navbaren.astro";
+import FooterEn from "../../components/Footeren.astro";
+
+export async function getStaticPaths() {
+  const recipes = await getCollection("recipes", ({ data }) => !data.draft);
+
+  return recipes.map((recipe) => ({
+    params: { slug: recipe.id },
+    props: { recipe },
+  }));
+}
+
+const { recipe } = Astro.props;
+const { data } = recipe;
+const { Content } = await render(recipe);
+---
+
+<LayoutEn title={`${data.title} — Spargel de los Planes`}>
+  <NavbarEn />
+  <article class="recipe">
+    <div class="recipe__header">
+      <a href="/en/recipes" class="recipe__back">← Back to Recipes</a>
+
+      <span class="recipe__category">{data.category}</span>
+      <h1 class="recipe__title">{data.title}</h1>
+      <p class="recipe__description">{data.description}</p>
+
+      <div class="recipe__meta">
+        <div class="recipe__meta-item">
+          <span class="recipe__meta-label">Prep Time</span>
+          <span class="recipe__meta-value">{data.prepTime}</span>
+        </div>
+        <div class="recipe__meta-item">
+          <span class="recipe__meta-label">Cook Time</span>
+          <span class="recipe__meta-value">{data.cookTime}</span>
+        </div>
+        <div class="recipe__meta-item">
+          <span class="recipe__meta-label">Servings</span>
+          <span class="recipe__meta-value">{data.servings}</span>
+        </div>
+        <div class="recipe__meta-item">
+          <span class="recipe__meta-label">Difficulty</span>
+          <span class="recipe__meta-value">{data.difficulty}</span>
+        </div>
+      </div>
+    </div>
+
+    <figure class="recipe__image">
+      <img src={data.image} alt={data.title} />
+    </figure>
+
+    <div class="recipe__content">
+      <Content />
+    </div>
+
+    <div class="recipe__cta">
+      <p>Want this fresh asparagus for your kitchen or business?</p>
+      <a href="/en/#contact" class="recipe__cta-btn">Request a Quote</a>
+    </div>
+  </article>
+  <FooterEn />
+</LayoutEn>

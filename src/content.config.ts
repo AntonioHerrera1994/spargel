@@ -23,4 +23,26 @@ const recetas = defineCollection({
   }),
 });
 
-export const collections = { recetas };
+const recipes = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/recipes" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    image: z.string(),
+    category: z.enum([
+      "Appetizers",
+      "Side Dishes",
+      "Main Dishes",
+      "Soups",
+      "Salads",
+    ]),
+    prepTime: z.string(),
+    cookTime: z.string(),
+    servings: z.number(),
+    difficulty: z.enum(["Easy", "Intermediate", "Advanced"]),
+    publishDate: z.coerce.date(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { recetas, recipes };

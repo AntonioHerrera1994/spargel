@@ -1,0 +1,51 @@
+---
+
+import "../styles/faqs.css";
+
+const faqs = [
+  {
+    question: "What makes Los Planes asparagus unique?",
+    answer:
+      "Our unique microclimate, where the desert meets the ocean, combined with mineral-rich sandy soils, produces an asparagus with an exceptionally sweet flavor and tender texture.",
+  },
+  {
+    question: "How do you ensure your crops are sustainable?",
+    answer:
+      "We use high-precision drip irrigation systems powered entirely by solar energy, minimizing our water and carbon footprint with every harvest.",
+  },
+  {
+    question: "Do you ship internationally?",
+    answer:
+      "Yes, we operate under the strictest export quality standards, allowing us to bring the freshness of Baja California Sur to top-tier international markets.",
+  },
+  {
+    question: "How can I place a wholesale order?",
+    answer:
+      "You can fill out the contact form below or call us directly. Our sales team will provide you with a personalized quote based on your needs.",
+  },
+];
+---
+
+<section class="faq">
+  <div class="faq__header">
+    <div class="faq__eyebrow">
+      <span class="faq__eyebrow-line"></span>
+      FREQUENTLY ASKED QUESTIONS
+      <span class="faq__eyebrow-line"></span>
+    </div>
+    <h2 class="faq__title">Answering Your Questions</h2>
+  </div>
+
+  <div class="faq__grid">
+    {
+      faqs.map((item) => (
+        <div class="faq-card">
+          <h3 class="faq-card__question">{item.question}</h3>
+          <p class="faq-card__answer">{item.answer}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script src="../scripts/faqs.js"></script>

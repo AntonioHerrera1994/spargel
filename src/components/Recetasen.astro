@@ -2,30 +2,30 @@
 import { getCollection } from "astro:content";
 import "../styles/recetas.css";
  
-const allRecipes = await getCollection("recetas", ({ data }) => !data.draft);
+const allRecipes = await getCollection("recipes", ({ data }) => !data.draft);
  
 const recipes = allRecipes
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
   .slice(0, 3); // solo las 3 más recientes en el home
 ---
- 
+
 <section class="recipes">
   <div class="recipes__header">
     <div class="recipes__eyebrow">
       <span class="recipes__eyebrow-line"></span>
-      GASTRONOMÍA
+      GASTRONOMY
       <span class="recipes__eyebrow-line"></span>
     </div>
-    <h2 class="recipes__title">Del Campo a tu Mesa</h2>
+    <h2 class="recipes__title">From Field to Table</h2>
     <p class="recipes__subtitle">
-      Inspírate con el sabor único de nuestros espárragos en preparaciones gourmet.
+      Get inspired by the unique flavor of our asparagus in gourmet dishes.
     </p>
   </div>
- 
+
   <div class="recipes__grid">
     {
       recipes.map((recipe) => (
-        <a href={`/recetas/${recipe.id}`} class="recipe-card">
+        <a href={`/recipes/${recipe.id}`} class="recipe-card">
           <div class="recipe-card__image">
             <img src={recipe.data.image} alt={recipe.data.title} loading="lazy" />
           </div>
@@ -33,20 +33,17 @@ const recipes = allRecipes
             <h3 class="recipe-card__title">{recipe.data.title}</h3>
             <p class="recipe-card__text">{recipe.data.description}</p>
             <span class="recipe-card__link">
-              Ver Receta <span class="recipe-card__arrow" aria-hidden="true">→</span>
+              View Recipe <span class="recipe-card__arrow" aria-hidden="true">→</span>
             </span>
           </div>
         </a>
       ))
     }
   </div>
- 
 
   <div class="recipes__cta" style="margin-top: 50px;">
-    <a href="/recetas" class="recipes__cta-link" >Ver todas las recetas →</a>
+    <a href="/recipes" class="recipes__cta-link">View all recipes →</a>
   </div>
-
-
 </section>
 
 <script src="../scripts/recetas.js"></script>

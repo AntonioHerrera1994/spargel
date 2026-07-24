@@ -1,0 +1,74 @@
+---
+
+import "../styles/process.css";
+const steps = [
+  {
+    label: "Step 01",
+    title: "Sustainable Packaging",
+    text: "Use of biodegradable materials and a full reduction of single-use plastics across our supply chain.",
+   image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/step1.webp",
+    alt: "Sustainable Packaging",
+  },
+  {
+    label: "Step 02",
+    title: "Continuous Care & Support",
+    text: "Constant monitoring of every sprout through precision systems and solar-powered drip irrigation.",
+    image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/setp2.webp",
+    alt: "Continuous Care & Support",
+  },
+  {
+    label: "Step 03",
+    title: "Expert Harvest & Selection",
+    text: "Selective hand-picking to ensure only the finest export-quality sprouts reach you.",
+   image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/setp3.webp",
+    alt: "Harvesting",
+  },
+];
+---
+
+<section class="process" id="process">
+  <div class="process__header">
+    <div class="process__eyebrow">
+      <span class="process__eyebrow-line"></span>
+      OUR PROCESS
+      <span class="process__eyebrow-line"></span>
+    </div>
+    <h2 class="process__title">Step by Step Toward Excellence</h2>
+  </div>
+
+  <div class="process__grid">
+    <!-- Timeline -->
+    <div class="process__steps" id="process-steps">
+      {
+        steps.map((step, index) => (
+          <div class="process-step" data-index={index}>
+            <div class="process-step__marker">
+              <span class="process-step__badge">{step.label}</span>
+            </div>
+            <div class="process-step__content">
+              <h3 class="process-step__title">{step.title}</h3>
+              <p class="process-step__text">{step.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Image accompanying the active step -->
+    <div class="process__visual" id="process-visual">
+      {
+        steps.map((step, index) => (
+          <img
+            src={step.image}
+            alt={step.alt}
+            class="process__image"
+            data-index={index}
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script src="../scripts/process.js"></script>

@@ -2,33 +2,22 @@
 import "../styles/contacto.css";
 
 const contactInfo = [
-  {
-    icon: "mail",
-    label: "Correo Electrónico",
-    value: "contacto@spargeldelosplanes.com",
-  },
-  {
-    icon: "phone",
-    label: "Llámanos",
-    value: "(612) 155-0691",
-  },
-  {
-    icon: "pin",
-    label: "Ubicación",
-    value: "Los Planes, BCS, México",
-  },
+  { icon: "mail", label: "Email", value: "contacto@spargeldelosplanes.com" },
+  { icon: "phone", label: "Call Us", value: "(612) 155-0691" },
+  { icon: "pin", label: "Location", value: "Los Planes, BCS, Mexico" },
 ];
+
+
 ---
 
-<section class="contact" id="contacto">
+<section class="contact" id="contact">
   <div class="contact__grid">
-    <!-- Columna izquierda -->
+    <!-- Left column -->
     <div class="contact__intro">
-      <h2 class="contact__title">Hablemos de Calidad</h2>
+      <h2 class="contact__title">Let's Talk Quality</h2>
       <p class="contact__text">
-        Estamos listos para abastecer su negocio con el mejor producto de la
-        región. Envíenos un mensaje para recibir nuestra tabla de cotización
-        para mayoreo.
+        We're ready to supply your business with the finest product in the
+        region. Send us a message to receive our wholesale pricing sheet.
       </p>
 
       <ul class="contact__list">
@@ -64,36 +53,36 @@ const contactInfo = [
       </ul>
     </div>
 
-    <!-- Columna derecha: formulario -->
+    <!-- Right column: form -->
     <div class="contact__card">
       <form id="contact-form" class="contact-form" novalidate>
         <div class="contact-form__row">
           <div class="contact-form__field">
-            <label for="cf-name">Nombre</label>
-            <input type="text" id="cf-name" name="name" placeholder="Su nombre" autocomplete="name" />
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" />
             <span class="contact-form__error" data-error-for="cf-name"></span>
           </div>
           <div class="contact-form__field">
-            <label for="cf-company">Empresa</label>
-            <input type="text" id="cf-company" name="company" placeholder="Nombre de su empresa" autocomplete="organization" />
+            <label for="cf-company">Company</label>
+            <input type="text" id="cf-company" name="company" placeholder="Your company name" autocomplete="organization" />
             <span class="contact-form__error" data-error-for="cf-company"></span>
           </div>
         </div>
 
         <div class="contact-form__field">
-          <label for="cf-email">Correo Electrónico</label>
-          <input type="email" id="cf-email" name="email" placeholder="email@ejemplo.com" autocomplete="email" />
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="email@example.com" autocomplete="email" />
           <span class="contact-form__error" data-error-for="cf-email"></span>
         </div>
 
         <div class="contact-form__field">
-          <label for="cf-message">Mensaje</label>
-          <textarea id="cf-message" name="message" rows="5" placeholder="Cuéntanos cómo podemos ayudarte"></textarea>
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" placeholder="Tell us how we can help"></textarea>
           <span class="contact-form__error" data-error-for="cf-message"></span>
         </div>
 
         <button type="submit" class="contact-form__submit">
-          <span class="contact-form__submit-label">Enviar Mensaje</span>
+          <span class="contact-form__submit-label">Send Message</span>
         </button>
 
         <p class="contact-form__status" role="status" aria-live="polite"></p>

@@ -1,0 +1,64 @@
+---
+// src/pages/recetas/index.astro
+// Ajusta la ruta del Layout según la estructura de tu proyecto.
+import LayoutEn from "../../layouts/LayoutIngles.astro";
+import { getCollection } from "astro:content";
+import "../recipes/recipes-index.css";
+import NavbarEn from "../../components/Navbaren.astro";
+import FooterEn from "../../components/Footeren.astro";
+
+const allRecipes = await getCollection("recipes", ({ data }) => !data.draft);
+
+const recipes = allRecipes.sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+
+<LayoutEn title="Recetas — Spargel de los Planes">
+  <NavbarEn />
+<section class="recipes-index">
+    <div class="recipes-index__header">
+      <div class="recipes-index__eyebrow">
+        <span class="recipes-index__eyebrow-line"></span>
+        GASTRONOMY
+        <span class="recipes-index__eyebrow-line"></span>
+      </div>
+      <h1 class="recipes-index__title">Our Recipes</h1>
+      <p class="recipes-index__subtitle">
+        Gourmet ideas to get the most flavor out of our asparagus, straight
+        from the field to your table.
+      </p>
+    </div>
+ 
+    <div class="recipes-index__grid">
+      {
+        recipes.map((recipe) => (
+          <a href={`/recipes/${recipe.id}`} class="recipe-tile">
+            <div class="recipe-tile__image">
+              <img src={recipe.data.image} alt={recipe.data.title} loading="lazy" />
+              <span class="recipe-tile__category">{recipe.data.category}</span>
+            </div>
+            <div class="recipe-tile__body">
+              <h2 class="recipe-tile__title">{recipe.data.title}</h2>
+              <p class="recipe-tile__text">{recipe.data.description}</p>
+              <div class="recipe-tile__meta">
+                <span>⏱ {recipe.data.prepTime} + {recipe.data.cookTime}</span>
+                <span>· {recipe.data.difficulty}</span>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+ 
+    {
+      recipes.length === 0 && (
+        <p class="recipes-index__empty">
+          No recipes published yet. Check back soon!
+        </p>
+      )
+    }
+  </section>
+  <FooterEn />
+</LayoutEn>

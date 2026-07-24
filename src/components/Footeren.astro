@@ -1,0 +1,99 @@
+---
+
+import "../styles/footer.css";
+import FooterLogo from '../assets/footer-logo.png'
+
+const navLinks = [
+  { label: "Our Origin", href: "#origin" },
+  { label: "Sustainability", href: "#sustainability" },
+  { label: "Benefits", href: "#benefits" },
+  { label: "Contact", href: "#contact" },
+];
+
+const infoLinks = [
+  { label: "Privacy Notice", href: "/privacy-notice" },
+  { label: "Terms & Conditions", href: "/terms-and-conditions" },
+  { label: "Global Logistics", href: "/global-logistics" },
+];
+---
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <div class="footer__logo">
+        <img
+          src={FooterLogo.src}
+          alt="Spargel footer logo"
+          width="160px"
+        />
+      </div>
+      <p class="footer__desc">
+        Leaders in sustainable asparagus farming in northwestern Mexico.
+        Export-grade quality with a Baja California soul.
+      </p>
+    </div>
+
+    <nav class="footer__col" aria-label="Navigation">
+      <h3 class="footer__col-title">NAVIGATION</h3>
+      <ul class="footer__links">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav class="footer__col" aria-label="Information">
+      <h3 class="footer__col-title">INFORMATION</h3>
+      <ul class="footer__links">
+        {
+          infoLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer__divider"></div>
+
+  <div class="footer__bottom">
+    <p class="footer__copyright">
+      © <span id="footer-year">2024</span> Spargel de los Planes. All rights
+      reserved.
+    </p>
+
+    <div class="footer__social">
+      <a href="#" class="footer__social-link" aria-label="Website">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M2 12h20" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
+        </svg>
+      </a>
+      <a href="#" class="footer__social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+        </svg>
+      </a>
+      <a href="#" class="footer__social-link" aria-label="Share">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <path d="m8.6 13.5 6.8 3.9" />
+          <path d="m15.4 6.6-6.8 3.9" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="../scripts/footer.js"></script>

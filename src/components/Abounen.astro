@@ -1,0 +1,83 @@
+---
+import "../styles/about.css";
+const features = [
+  { icon: "leaf", title: "Fresh & Healthy", text: "We deliver the finest product, grown with care in Baja Sur." },
+  { icon: "bike", title: "Your Perfect Partner", text: "Reliable supply for luxury hotels and restaurants." },
+  { icon: "truck", title: "Agile Logistics", text: "Straight from the field to your door, preserving the cold chain." },
+];
+---
+
+<section class="about" id="about">
+  <div class="about__grid">
+    <!-- Image -->
+    <figure class="about__image">
+      <img
+        src="https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/esparrago.webp"
+        alt="Premium Asparagus"
+        loading="lazy"
+      />
+    </figure>
+
+    <!-- Cards (hover only, not buttons) -->
+    <div class="about__features">
+      {
+        features.map((feature) => (
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              {feature.icon === "leaf" && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 4 13V7a1 1 0 0 1 1-1h6a7 7 0 0 1 7 7v0a7 7 0 0 1-7 7Z" />
+                  <path d="M4 13c6 0 8-4 12-4" />
+                </svg>
+              )}
+              {feature.icon === "bike" && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="6" cy="17" r="3" />
+                  <circle cx="18" cy="17" r="3" />
+                  <path d="M6 17 9 8h4l3 5" />
+                  <path d="M9 8h5" />
+                  <path d="M15 17h3l-2-4" />
+                </svg>
+              )}
+              {feature.icon === "truck" && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="7" width="13" height="10" rx="1" />
+                  <path d="M14 10h4l3 3v4h-7z" />
+                  <circle cx="6" cy="19" r="1.5" />
+                  <circle cx="17" cy="19" r="1.5" />
+                </svg>
+              )}
+            </div>
+            <h3 class="feature-card__title">{feature.title}</h3>
+            <p class="feature-card__text">{feature.text}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Copy -->
+    <div class="about__content">
+      <div class="about__eyebrow">
+        <span class="about__eyebrow-line"></span>
+        ABOUT US
+        <span class="about__eyebrow-line"></span>
+      </div>
+
+      <h2 class="about__title">
+        Building a Legacy of Conscious Farming
+      </h2>
+
+      <p class="about__text">
+        In the Valle de Los Planes, Baja California Sur, our crops benefit
+        from a unique microclimate. Mineral-rich sandy soils and generous
+        year-round sunshine, powered by clean energy.
+      </p>
+
+      <a href="#learn-more" class="about__cta">
+        Learn More <span class="icon" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="../scripts/about.js"></script>

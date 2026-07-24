@@ -20,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 85px;
+  height: 82px;
 }
 
 /* ===== LOGO ===== */
@@ -36,7 +36,7 @@
 }
 
 .navbar-logo img {
-  height: 80px;
+  height: 48px;
   width: auto;
 }
 
@@ -85,6 +85,37 @@
   color: var(--color-text-on-brand);
   transform: scale(1.02);
   border-bottom-color: transparent;
+}
+
+/* ===== SELECTOR DE IDIOMA (bandera) ===== */
+.navbar-menu li.navbar-lang a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.navbar-menu li.navbar-lang a:hover {
+  border-color: var(--color-brand);
+  background-color: var(--color-primary-50);
+}
+
+.navbar-menu li.navbar-lang .flag-icon {
+  width: 22px;
+  height: 15px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  display: block;
 }
 
 /* ===== REDES SOCIALES (junto al botón verde) ===== */
@@ -200,5 +231,13 @@
     margin-left: 0;
     justify-content: center;
     padding-top: var(--space-2);
+  }
+
+  .navbar-menu li.navbar-lang {
+    justify-content: center;
+  }
+
+  .navbar-menu li.navbar-lang a {
+    display: inline-flex;
   }
 }
