@@ -18,10 +18,17 @@ const steps = [
   },
   {
     label: "Step 03",
-    title: "Cosecha y Selección Expert",
+    title: "Cosecha y Selección Experta",
     text: "Recolección manual selectiva para asegurar que solo los mejores brotes de calidad exportación lleguen a usted.",
     image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/setp3.webp",
     alt: "Harvesting",
+  },
+  {
+    label: "Step 04",
+    title: "Etiquetado y Trazabilidad",
+    text: "Cada cosecha lleva un etiquetado innovador que te brinda el historial completo de su proceso: transparencia total, del campo a tu mesa.",
+    image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/esparrago.webp",
+    alt: "Etiquetado y Trazabilidad",
   },
 ];
 ---
@@ -33,11 +40,10 @@ const steps = [
       NUESTRO PROCESO
       <span class="process__eyebrow-line"></span>
     </div>
-    <h2 class="process__title">Paso a Paso hacia la Excelencia</h2>
+    <h2 class="process__title">Una Cosecha Amigable, Paso a Paso</h2>
   </div>
 
   <div class="process__grid">
-    <!-- Timeline -->
     <div class="process__steps" id="process-steps">
       {
         steps.map((step, index) => (
@@ -54,7 +60,6 @@ const steps = [
       }
     </div>
 
-    <!-- Imagen que acompaña al paso activo -->
     <div class="process__visual" id="process-visual">
       {
         steps.map((step, index) => (

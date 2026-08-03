@@ -1,0 +1,167 @@
+.mv {
+  padding: 6rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.mv__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.mv__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold, #b08d3f);
+  margin-bottom: 1rem;
+}
+
+.mv__eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background: var(--color-gold, #b08d3f);
+}
+
+.mv__title {
+  font-family: var(--font-heading, "Libre Caslon Text", serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: var(--color-forest, #1f2d20);
+}
+
+/* Grid Misión / Visión */
+.mv__pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.mv-pillar {
+  position: relative;
+  min-height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  isolation: isolate;
+
+}
+
+.mv-pillar__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.mv-pillar__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 30, 20, 0.4) 0%,
+    rgba(20, 30, 20, 0.92) 85%
+  );
+  z-index: -1;
+}
+
+.mv-pillar__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  color: var(--color-tan, #f2ead9);
+}
+
+.mv-pillar__label {
+  display: inline-block;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold, #d4af5a);
+  margin-bottom: 0.75rem;
+}
+
+.mv-pillar__title {
+  font-family: var(--font-heading, "Libre Caslon Text", serif);
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+    color: white;
+}
+
+.mv-pillar__text {
+  font-family: var(--font-body, "Hanken Grotesk", sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  color: white;
+}
+
+/* Grid de Valores */
+.mv__values {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.value-card {
+  background: var(--color-tan-light, #faf7ef);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.value-card__icon {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 1rem;
+  color: var(--color-forest, #1f2d20);
+}
+
+.value-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.value-card__title {
+  font-family: var(--font-heading, "Libre Caslon Text", serif);
+  font-size: 1.1rem;
+  color: var(--color-forest, #1f2d20);
+  margin-bottom: 0.5rem;
+}
+
+.value-card__text {
+  font-family: var(--font-body, "Hanken Grotesk", sans-serif);
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .mv__pillars {
+    grid-template-columns: 1fr;
+  }
+  .mv__values {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .mv__values {
+    grid-template-columns: 1fr;
+  }
+}

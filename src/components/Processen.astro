@@ -1,27 +1,34 @@
 ---
-
 import "../styles/process.css";
+
 const steps = [
   {
     label: "Step 01",
     title: "Sustainable Packaging",
-    text: "Use of biodegradable materials and a full reduction of single-use plastics across our supply chain.",
-   image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/step1.webp",
+    text: "Use of biodegradable materials and a full reduction of single-use plastics throughout our supply chain.",
+    image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/step1.webp",
     alt: "Sustainable Packaging",
   },
   {
     label: "Step 02",
-    title: "Continuous Care & Support",
+    title: "Continuous Care and Support",
     text: "Constant monitoring of every sprout through precision systems and solar-powered drip irrigation.",
     image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/setp2.webp",
-    alt: "Continuous Care & Support",
+    alt: "Continuous Care and Support",
   },
   {
     label: "Step 03",
-    title: "Expert Harvest & Selection",
-    text: "Selective hand-picking to ensure only the finest export-quality sprouts reach you.",
-   image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/setp3.webp",
+    title: "Expert Harvest and Selection",
+    text: "Selective hand-picking to ensure only the finest, export-quality spears reach you.",
+    image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/setp3.webp",
     alt: "Harvesting",
+  },
+  {
+    label: "Step 04",
+    title: "Labeling and Traceability",
+    text: "Every harvest carries innovative labeling that gives you the full history of its process: total transparency, from the field to your table.",
+    image: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/esparrago.webp",
+    alt: "Labeling and Traceability",
   },
 ];
 ---
@@ -33,11 +40,10 @@ const steps = [
       OUR PROCESS
       <span class="process__eyebrow-line"></span>
     </div>
-    <h2 class="process__title">Step by Step Toward Excellence</h2>
+    <h2 class="process__title">A Friendly Harvest, Step by Step</h2>
   </div>
 
   <div class="process__grid">
-    <!-- Timeline -->
     <div class="process__steps" id="process-steps">
       {
         steps.map((step, index) => (
@@ -54,7 +60,6 @@ const steps = [
       }
     </div>
 
-    <!-- Image accompanying the active step -->
     <div class="process__visual" id="process-visual">
       {
         steps.map((step, index) => (

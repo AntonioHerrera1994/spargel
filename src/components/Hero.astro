@@ -4,7 +4,6 @@ import "../styles/hero.css";
 const slides = [
   { src: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/esp1.webp", alt: "Producto de cerca" },
   { src: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/esp2.webp", alt: "Empaque premium" },
-  
   { src: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/esp3.webp", alt: "Corte fresco" },
   { src: "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/esp4.webp", alt: "Cosecha en el valle" },
 ];
@@ -16,16 +15,18 @@ const slides = [
     <div class="hero__card">
       <div class="hero__eyebrow">
         <span class="hero__eyebrow-line"></span>
-        FRESCURA SUSTENTABLE 100%
+        DE MÉXICO, PARA MÉXICO
+        <span class="hero__eyebrow-line"></span>
       </div>
 
       <h1 class="hero__title">
-        Frescura Sustentable desde el Corazón de Baja California Sur
+        El Sabor Inigualable de lo Natural, desde el Valle de Los Planes
       </h1>
 
       <p class="hero__desc">
-        Espárragos premium cultivados con conciencia ambiental en el Valle de
-        Los Planes. Una joya de exportación directamente del campo a su mesa.
+        Desde Finca Palo Verde nace Spargel de Los Planes: espárragos premium
+        cultivados con pasión en Baja California Sur, innovando la industria
+        agrícola con estrategias precisas y un compromiso real con la tierra.
       </p>
 
       <div class="hero__actions">
@@ -46,7 +47,6 @@ const slides = [
           alt="Asparagus Farm"
           loading="lazy"
         />
-      
       </figure>
 
       <div class="hero__slider" id="hero-slider">
@@ -62,22 +62,8 @@ const slides = [
       </div>
 
       <div class="hero__nav">
-        <button
-          type="button"
-          class="nav-btn nav-btn--prev"
-          id="prev-btn"
-          aria-label="Imagen anterior"
-        >
-          ‹
-        </button>
-        <button
-          type="button"
-          class="nav-btn nav-btn--next is-active"
-          id="next-btn"
-          aria-label="Siguiente imagen"
-        >
-          ›
-        </button>
+        <button type="button" class="nav-btn nav-btn--prev" id="prev-btn" aria-label="Imagen anterior">‹</button>
+        <button type="button" class="nav-btn nav-btn--next is-active" id="next-btn" aria-label="Siguiente imagen">›</button>
       </div>
     </div>
   </div>

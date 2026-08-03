@@ -2,12 +2,22 @@
 import "../styles/contacto.css";
 
 const contactInfo = [
-  { icon: "mail", label: "Email", value: "contacto@spargeldelosplanes.com" },
-  { icon: "phone", label: "Call Us", value: "(612) 155-0691" },
-  { icon: "pin", label: "Location", value: "Los Planes, BCS, Mexico" },
+  {
+    icon: "mail",
+    label: "Email",
+    value: "contacto@spargeldelosplanes.com",
+  },
+  {
+    icon: "phone",
+    label: "Call Us",
+    value: "(612) 155-0691",
+  },
+  {
+    icon: "pin",
+    label: "Location",
+    value: "Los Planes, BCS, Mexico",
+  },
 ];
-
-
 ---
 
 <section class="contact" id="contact">
@@ -16,7 +26,7 @@ const contactInfo = [
     <div class="contact__intro">
       <h2 class="contact__title">Let's Talk Quality</h2>
       <p class="contact__text">
-        We're ready to supply your business with the finest product in the
+        We're ready to supply your business with the finest product from the
         region. Send us a message to receive our wholesale pricing sheet.
       </p>
 
@@ -77,7 +87,7 @@ const contactInfo = [
 
         <div class="contact-form__field">
           <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="5" placeholder="Tell us how we can help"></textarea>
+          <textarea id="cf-message" name="message" rows="5" placeholder="Tell us how we can help you"></textarea>
           <span class="contact-form__error" data-error-for="cf-message"></span>
         </div>
 
