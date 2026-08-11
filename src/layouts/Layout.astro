@@ -24,7 +24,7 @@ const isEnglish = Astro.url.pathname.startsWith("/en");
 const esPath = isEnglish ? Astro.url.pathname.replace(/^\/en/, "") || "/" : Astro.url.pathname;
 const enPath = isEnglish ? Astro.url.pathname : `/en${Astro.url.pathname === "/" ? "" : Astro.url.pathname}`;
 ---
----
+
 <!doctype html>
 <html lang="en">
 <head>
