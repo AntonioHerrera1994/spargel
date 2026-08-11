@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = "Spargel de Los Planes | Espárragos Premium de Valle de Los Planes, BCS",
-  description = "Espárragos premium cultivados de forma sustentable en Valle de Los Planes, Baja California Sur. Del campo a tu mesa con pasión, integridad e innovación agrícola.",
+  title = "Spargel de Los Planes | Espárragos Premium de BCS",
+  description = "Espárragos cultivados de forma sustentable en Valle de Los Planes, Baja California Sur. Del campo a tu mesa con pasión, integridad e innovación agrícola.",
   image = "https://raw.githubusercontent.com/AntonioHerrera1994/spargel/refs/heads/main/src/assets/esparrago.webp",
   noindex = false,
 } = Astro.props;
@@ -59,7 +59,9 @@ const enPath = isEnglish ? Astro.url.pathname : `/en${Astro.url.pathname === "/"
 	<meta property="og:site_name" content="Spargel de Los Planes" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<meta property="og:image" content={new URL(image, Astro.site)} />
+<meta property="og:image" content={new URL(image, Astro.site)} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 	<meta property="og:url" content={canonicalURL} />
 	<meta property="og:locale" content={isEnglish ? "en_US" : "es_MX"} />
 	<meta property="og:locale:alternate" content={isEnglish ? "es_MX" : "en_US"} />
