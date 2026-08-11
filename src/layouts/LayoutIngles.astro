@@ -89,6 +89,16 @@ const enPath = Astro.url.pathname;
 		},
 		"sameAs": []
 	})} />
+
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EDP224E8E"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6EDP224E8E');
+</script>
 </head>
 	<body>
 		<slot />
